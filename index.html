@@ -798,7 +798,7 @@
                   production.
                 </p>
                 <span
-                  class="text-xs font-bold tracking-widest uppercase border-b border-white pb-1"
+                  class="text-xs font-bold tracking-widest Uppercase border-b border-white pb-1"
                   >View Details</span
                 >
               </div>
@@ -920,7 +920,7 @@
           id: 2,
           name: "Aged Cheddar Block",
           category: "Cheese",
-          price: 8.99,
+          price: 899,
           image:
             "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?q=80&w=2070&auto=format&fit=crop",
           provider: "Happy Goat",
@@ -929,7 +929,7 @@
           id: 3,
           name: "Farm Fresh Butter",
           category: "Butter",
-          price: 5.25,
+          price: 525,
           image:
             "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=2070&auto=format&fit=crop",
           provider: "Green Valley",
@@ -938,7 +938,7 @@
           id: 4,
           name: "Greek Yogurt Tub",
           category: "Yogurt",
-          price: 3.75,
+          price: 375,
           image:
             "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?q=80&w=2070&auto=format&fit=crop",
           provider: "Dairy King",
@@ -947,7 +947,7 @@
           id: 5,
           name: "Heavy Cream",
           category: "Milk",
-          price: 6.0,
+          price: 60,
           image:
             "https://images.unsplash.com/photo-1628102491629-778571d893a3?q=80&w=2080&auto=format&fit=crop",
           provider: "Green Valley",
@@ -956,7 +956,7 @@
           id: 6,
           name: "Blue Cheese Wedge",
           category: "Cheese",
-          price: 10.5,
+          price: 105,
           image:
             "https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=2069&auto=format&fit=crop",
           provider: "Happy Goat",
@@ -1031,7 +1031,7 @@
                         <div class="text-xs text-gray-500 mb-1">${p.provider}</div>
                         <h3 class="font-bold text-lg mb-2 truncate">${p.name}</h3>
                         <div class="flex justify-between items-center mt-4">
-                            <span class="text-xl font-bold text-blue-600">$${parseFloat(p.price).toFixed(2)}</span>
+                            <span class="text-xl font-bold text-blue-600">₹${parseFloat(p.price).toFixed(2)}</span>
                             <button onclick="addToCart(${p.id})" class="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-600 hover:text-white transition">
                                 <i class="fa-solid fa-plus"></i>
                             </button>
@@ -1193,7 +1193,7 @@
                         <span class="font-medium">${p.name}</span>
                     </td>
                     <td class="p-4 text-gray-600">${p.category}</td>
-                    <td class="p-4 font-bold text-gray-800">$${parseFloat(p.price).toFixed(2)}</td>
+                    <td class="p-4 font-bold text-gray-800">₹${parseFloat(p.price).toFixed(2)}</td>
                     <td class="p-4"><span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">In Stock</span></td>
                     <td class="p-4 text-right">
                         <button onclick="deleteProduct(${p.id})" class="text-red-500 hover:text-red-700"><i class="fa-solid fa-trash"></i></button>
