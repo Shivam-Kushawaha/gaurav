@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PurePastures | Fresh Dairy Direct</title>
-    <!-- Tailwind CSS -->
+  
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome -->
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <!-- Google Fonts -->
+   
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -37,7 +37,7 @@
         }
       }
 
-      /* Custom Scrollbar */
+     
       ::-webkit-scrollbar {
         width: 8px;
       }
@@ -58,7 +58,7 @@
     </style>
   </head>
   <body class="text-gray-800">
-    <!-- Navigation -->
+  
     <nav class="bg-white shadow-md sticky top-0 z-50">
       <div
         class="container mx-auto px-4 py-3 flex justify-between items-center"
@@ -73,7 +73,7 @@
           >
         </div>
 
-        <!-- Desktop Menu -->
+     
         <div class="hidden md:flex space-x-8">
           <button
             onclick="router('home')"
@@ -95,7 +95,7 @@
           </button>
         </div>
 
-        <!-- Right Actions -->
+      
         <div class="flex items-center space-x-4">
           <button
             onclick="router('provider-login')"
@@ -118,11 +118,11 @@
       </div>
     </nav>
 
-    <!-- Main Content Area -->
+   
     <main id="app-container" class="min-h-screen pb-20">
-      <!-- 1. HOME PAGE -->
+      
       <section id="home" class="view fade-in">
-        <!-- Hero -->
+        
         <div class="relative bg-blue-600 text-white overflow-hidden">
           <div
             class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=2074&auto=format&fit=crop')] bg-cover bg-center"
@@ -144,7 +144,7 @@
           </div>
         </div>
 
-        <!-- Features -->
+     
         <div class="container mx-auto px-4 py-16">
           <div class="grid md:grid-cols-3 gap-8 text-center">
             <div
@@ -191,7 +191,7 @@
         </div>
       </section>
 
-      <!-- 2. SHOP PAGE -->
+     
       <section id="shop" class="view hide fade-in">
         <div class="bg-blue-50 py-8 mb-8">
           <div class="container mx-auto px-4">
@@ -205,7 +205,7 @@
         </div>
 
         <div class="container mx-auto px-4 flex flex-col md:flex-row gap-8">
-          <!-- Sidebar Filters -->
+         
           <div class="w-full md:w-1/4">
             <div class="bg-white p-6 rounded-lg shadow-sm sticky top-24">
               <h3 class="font-bold text-lg mb-4">Categories</h3>
@@ -265,25 +265,24 @@
             </div>
           </div>
 
-          <!-- Product Grid -->
           <div class="w-full md:w-3/4">
             <div
               id="product-grid"
               class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
             >
-              <!-- Products injected via JS -->
+             
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 3. CART PAGE -->
+     
       <section id="cart" class="view hide fade-in">
         <div class="container mx-auto px-4 py-12">
           <h2 class="text-3xl font-bold mb-8">Your Basket</h2>
 
           <div id="cart-content" class="flex flex-col lg:flex-row gap-8">
-            <!-- Cart Items -->
+           
             <div
               class="w-full lg:w-2/3 bg-white rounded-lg shadow-sm overflow-hidden"
             >
@@ -291,14 +290,14 @@
                 <h3 class="font-semibold">Selected Items</h3>
               </div>
               <div id="cart-items-container" class="p-6 space-y-4">
-                <!-- Items injected via JS -->
+                
                 <p class="text-gray-500 text-center py-8">
                   Your cart is empty.
                 </p>
               </div>
             </div>
 
-            <!-- Summary -->
+     
             <div class="w-full lg:w-1/3">
               <div class="bg-white p-6 rounded-lg shadow-sm sticky top-24">
                 <h3 class="font-bold text-lg mb-4">Order Summary</h3>
@@ -340,7 +339,7 @@
         </div>
       </section>
 
-      <!-- 4. CHECKOUT PAGE -->
+     
       <section id="checkout" class="view hide fade-in">
         <div class="container mx-auto px-4 py-12 max-w-4xl">
           <div class="bg-white rounded-xl shadow-lg overflow-hidden">
@@ -492,7 +491,7 @@
         </div>
       </section>
 
-      <!-- 5. SUCCESS PAGE -->
+      
       <section id="success" class="view hide fade-in">
         <div class="container mx-auto px-4 py-24 text-center">
           <div
@@ -517,7 +516,7 @@
         </div>
       </section>
 
-      <!-- 6. PROVIDER LOGIN -->
+   
       <section id="provider-login" class="view hide fade-in">
         <div class="min-h-[80vh] flex items-center justify-center bg-gray-50">
           <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
@@ -572,10 +571,10 @@
         </div>
       </section>
 
-      <!-- 7. PROVIDER DASHBOARD -->
+    
       <section id="provider-dashboard" class="view hide fade-in">
         <div class="flex flex-col md:flex-row min-h-screen">
-          <!-- Sidebar -->
+        
           <div class="w-full md:w-64 bg-gray-800 text-white p-6">
             <div class="flex items-center space-x-2 mb-8">
               <i class="fa-solid fa-leaf text-green-400"></i>
@@ -603,7 +602,7 @@
             </nav>
           </div>
 
-          <!-- Main Dash Content -->
+         
           <div class="flex-1 p-8 bg-gray-100">
             <div class="flex justify-between items-center mb-6">
               <h2 class="text-2xl font-bold text-gray-800">Your Inventory</h2>
@@ -629,7 +628,7 @@
                   </tr>
                 </thead>
                 <tbody id="inventory-table-body">
-                  <!-- JS Injected -->
+               
                 </tbody>
               </table>
             </div>
@@ -637,10 +636,10 @@
         </div>
       </section>
 
-      <!-- 8. PROVIDER ADD PRODUCT -->
+   
       <section id="provider-add" class="view hide fade-in">
         <div class="flex flex-col md:flex-row min-h-screen">
-          <!-- Sidebar (Replicated for visual consistency) -->
+        
           <div
             class="w-full md:w-64 bg-gray-800 text-white p-6 hidden md:block"
           >
@@ -769,7 +768,7 @@
         </div>
       </section>
 
-      <!-- ABOUT/FARMS (Extra page to hit count) -->
+    
       <section id="about" class="view hide fade-in">
         <div class="container mx-auto px-4 py-16">
           <h2 class="text-3xl font-bold mb-10 text-center text-gray-800">
@@ -834,7 +833,7 @@
       </section>
     </main>
 
-    <!-- Footer -->
+   
     <footer class="bg-gray-800 text-gray-300 py-10 mt-auto">
       <div class="container mx-auto px-4 grid md:grid-cols-4 gap-8">
         <div>
@@ -893,7 +892,7 @@
       </div>
     </footer>
 
-    <!-- Notification Toast -->
+   
     <div
       id="toast"
       class="fixed bottom-4 right-4 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-20 transition-transform duration-300 z-50 flex items-center gap-3"
@@ -902,10 +901,10 @@
       <span id="toast-message">Item added to cart</span>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
+    
     <script>
-      // --- DATA STATE ---
-      // Mock Database
+     
+     
       const defaultProducts = [
         {
           id: 1,
@@ -968,27 +967,27 @@
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
       let isProviderLoggedIn = false;
 
-      // --- INIT ---
+     
       document.addEventListener("DOMContentLoaded", () => {
         updateCartCount();
-        router("home"); // Initial Load
+        router("home");
       });
 
-      // --- ROUTER ---
+    
       function router(viewId) {
-        // Hide all views
+       
         document
           .querySelectorAll(".view")
           .forEach((el) => el.classList.add("hide"));
 
-        // Show target view
+       
         const target = document.getElementById(viewId);
         if (target) {
           target.classList.remove("hide");
           window.scrollTo(0, 0);
         }
 
-        // Logic trigger for specific views
+       
         if (viewId === "shop") renderShop("all");
         if (viewId === "cart") renderCart();
         if (viewId === "provider-dashboard") {
@@ -1002,7 +1001,7 @@
           router("provider-login");
       }
 
-      // --- SHOP LOGIC ---
+     
       function renderShop(category) {
         const grid = document.getElementById("product-grid");
         grid.innerHTML = "";
@@ -1046,7 +1045,7 @@
         renderShop(cat);
       }
 
-      // --- CART LOGIC ---
+      
       function addToCart(id) {
         const product = products.find((p) => p.id === id);
         const existing = cart.find((item) => item.id === id);
@@ -1142,7 +1141,7 @@
 
       function handleCheckout(e) {
         e.preventDefault();
-        // Simulate processing
+       
         const btn = e.target.querySelector('button[type="submit"]');
         btn.innerHTML =
           '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
@@ -1158,13 +1157,13 @@
         }, 1500);
       }
 
-      // --- PROVIDER LOGIC ---
+     
       function handleProviderLogin(e) {
         e.preventDefault();
         const email = document.getElementById("provider-email").value;
         const pass = document.getElementById("provider-pass").value;
 
-        // Mock Validation
+        
         if (email === "admin" && pass === "admin") {
           isProviderLoggedIn = true;
           document.getElementById("login-error").classList.add("hidden");
@@ -1183,7 +1182,7 @@
         const tbody = document.getElementById("inventory-table-body");
         tbody.innerHTML = "";
 
-        // Reverse to show newest first
+       
         [...products].reverse().forEach((p) => {
           const tr = document.createElement("tr");
           tr.className = "border-b hover:bg-gray-50";
@@ -1208,12 +1207,12 @@
         const formData = new FormData(e.target);
 
         const newProduct = {
-          id: Date.now(), // simple unique id
+          id: Date.now(), 
           name: formData.get("name"),
           category: formData.get("category"),
           price: parseFloat(formData.get("price")),
           image: formData.get("image"),
-          provider: "Your Farm", // Mock provider name
+          provider: "Today's Dairy", 
           desc: formData.get("desc"),
         };
 
@@ -1234,7 +1233,7 @@
         }
       }
 
-      // --- UTILS ---
+     
       function showToast(msg) {
         const toast = document.getElementById("toast");
         const msgEl = document.getElementById("toast-message");
