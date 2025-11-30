@@ -1,0 +1,1222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PurePastures | Fresh Dairy Direct</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Outfit", sans-serif;
+        background-color: #f8fafc;
+      }
+      .hide {
+        display: none;
+      }
+      .fade-in {
+        animation: fadeIn 0.3s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #93c5fd;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #60a5fa;
+      }
+
+      .dairy-gradient {
+        background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+      }
+    </style>
+  </head>
+  <body class="text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div
+          class="flex items-center space-x-2 cursor-pointer"
+          onclick="router('home')"
+        >
+          <i class="fa-solid fa-cow text-blue-500 text-2xl"></i>
+          <span class="text-2xl font-bold text-gray-800 tracking-tight"
+            >Pure<span class="text-blue-500">Pastures</span></span
+          >
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8">
+          <button
+            onclick="router('home')"
+            class="hover:text-blue-500 font-medium transition"
+          >
+            Home
+          </button>
+          <button
+            onclick="router('shop')"
+            class="hover:text-blue-500 font-medium transition"
+          >
+            Shop Fresh
+          </button>
+          <button
+            onclick="router('about')"
+            class="hover:text-blue-500 font-medium transition"
+          >
+            Our Farms
+          </button>
+        </div>
+
+        <!-- Right Actions -->
+        <div class="flex items-center space-x-4">
+          <button
+            onclick="router('provider-login')"
+            class="text-sm font-medium text-gray-500 hover:text-blue-600"
+          >
+            <i class="fa-solid fa-user-tie mr-1"></i> Provider Portal
+          </button>
+          <button
+            onclick="router('cart')"
+            class="relative p-2 hover:bg-gray-100 rounded-full transition"
+          >
+            <i class="fa-solid fa-shopping-cart text-xl text-gray-700"></i>
+            <span
+              id="cart-count"
+              class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center transform scale-0 transition-transform duration-200"
+              >0</span
+            >
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="app-container" class="min-h-screen pb-20">
+      <!-- 1. HOME PAGE -->
+      <section id="home" class="view fade-in">
+        <!-- Hero -->
+        <div class="relative bg-blue-600 text-white overflow-hidden">
+          <div
+            class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=2074&auto=format&fit=crop')] bg-cover bg-center"
+          ></div>
+          <div class="container mx-auto px-4 py-24 relative z-10 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+              Farm Fresh to Your Doorstep
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-2xl mx-auto">
+              Skip the middleman. Buy organic milk, cheese, and yogurt directly
+              from local dairy farmers.
+            </p>
+            <button
+              onclick="router('shop')"
+              class="bg-white text-blue-600 px-8 py-3 rounded-full font-bold text-lg hover:bg-blue-50 transform hover:scale-105 transition shadow-lg"
+            >
+              Shop Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="container mx-auto px-4 py-16">
+          <div class="grid md:grid-cols-3 gap-8 text-center">
+            <div
+              class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition"
+            >
+              <div
+                class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"
+              >
+                <i class="fa-solid fa-leaf"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">100% Organic</h3>
+              <p class="text-gray-600">
+                No hormones, no antibiotics. Just pure, grass-fed goodness.
+              </p>
+            </div>
+            <div
+              class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition"
+            >
+              <div
+                class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"
+              >
+                <i class="fa-solid fa-truck-fast"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Morning Delivery</h3>
+              <p class="text-gray-600">
+                Order by 8 PM, get it on your doorstep by 6 AM the next day.
+              </p>
+            </div>
+            <div
+              class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition"
+            >
+              <div
+                class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"
+              >
+                <i class="fa-solid fa-handshake"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">Support Local</h3>
+              <p class="text-gray-600">
+                Direct payments to farmers ensure they get the fair share they
+                deserve.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. SHOP PAGE -->
+      <section id="shop" class="view hide fade-in">
+        <div class="bg-blue-50 py-8 mb-8">
+          <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800">
+              Our Dairy Selection
+            </h2>
+            <p class="text-gray-600 mt-2">
+              Browse products from verified local providers
+            </p>
+          </div>
+        </div>
+
+        <div class="container mx-auto px-4 flex flex-col md:flex-row gap-8">
+          <!-- Sidebar Filters -->
+          <div class="w-full md:w-1/4">
+            <div class="bg-white p-6 rounded-lg shadow-sm sticky top-24">
+              <h3 class="font-bold text-lg mb-4">Categories</h3>
+              <div class="space-y-2">
+                <label class="flex items-center space-x-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="category"
+                    value="all"
+                    checked
+                    onchange="filterProducts('all')"
+                    class="text-blue-600"
+                  />
+                  <span>All Products</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="category"
+                    value="Milk"
+                    onchange="filterProducts('Milk')"
+                    class="text-blue-600"
+                  />
+                  <span>Fresh Milk</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="category"
+                    value="Cheese"
+                    onchange="filterProducts('Cheese')"
+                    class="text-blue-600"
+                  />
+                  <span>Artisan Cheese</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="category"
+                    value="Yogurt"
+                    onchange="filterProducts('Yogurt')"
+                    class="text-blue-600"
+                  />
+                  <span>Yogurt & Curd</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="category"
+                    value="Butter"
+                    onchange="filterProducts('Butter')"
+                    class="text-blue-600"
+                  />
+                  <span>Butter & Ghee</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Grid -->
+          <div class="w-full md:w-3/4">
+            <div
+              id="product-grid"
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              <!-- Products injected via JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. CART PAGE -->
+      <section id="cart" class="view hide fade-in">
+        <div class="container mx-auto px-4 py-12">
+          <h2 class="text-3xl font-bold mb-8">Your Basket</h2>
+
+          <div id="cart-content" class="flex flex-col lg:flex-row gap-8">
+            <!-- Cart Items -->
+            <div
+              class="w-full lg:w-2/3 bg-white rounded-lg shadow-sm overflow-hidden"
+            >
+              <div class="p-6 border-b">
+                <h3 class="font-semibold">Selected Items</h3>
+              </div>
+              <div id="cart-items-container" class="p-6 space-y-4">
+                <!-- Items injected via JS -->
+                <p class="text-gray-500 text-center py-8">
+                  Your cart is empty.
+                </p>
+              </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="w-full lg:w-1/3">
+              <div class="bg-white p-6 rounded-lg shadow-sm sticky top-24">
+                <h3 class="font-bold text-lg mb-4">Order Summary</h3>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-600">Subtotal</span>
+                  <span id="cart-subtotal" class="font-medium">$0.00</span>
+                </div>
+                <div class="flex justify-between mb-4">
+                  <span class="text-gray-600">Delivery</span>
+                  <span class="text-green-600 font-medium">Free</span>
+                </div>
+                <div class="border-t pt-4 mb-6">
+                  <div class="flex justify-between items-center">
+                    <span class="font-bold text-xl">Total</span>
+                    <span
+                      id="cart-total"
+                      class="font-bold text-2xl text-blue-600"
+                      >$0.00</span
+                    >
+                  </div>
+                </div>
+                <button
+                  onclick="router('checkout')"
+                  id="checkout-btn"
+                  disabled
+                  class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition"
+                >
+                  Proceed to Checkout
+                </button>
+                <button
+                  onclick="router('shop')"
+                  class="w-full mt-3 text-blue-600 font-medium hover:underline"
+                >
+                  Continue Shopping
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. CHECKOUT PAGE -->
+      <section id="checkout" class="view hide fade-in">
+        <div class="container mx-auto px-4 py-12 max-w-4xl">
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-blue-600 p-6 text-white">
+              <h2 class="text-2xl font-bold">Secure Checkout</h2>
+              <p class="text-blue-100 text-sm">
+                No account needed. Just details.
+              </p>
+            </div>
+
+            <form
+              onsubmit="handleCheckout(event)"
+              class="p-8 grid md:grid-cols-2 gap-8"
+            >
+              <div>
+                <h3 class="font-bold text-gray-800 mb-4 border-b pb-2">
+                  Delivery Details
+                </h3>
+                <div class="space-y-4">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Full Name</label
+                    >
+                    <input
+                      type="text"
+                      required
+                      class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Email Address</label
+                    >
+                    <input
+                      type="email"
+                      required
+                      class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Street Address</label
+                    >
+                    <input
+                      type="text"
+                      required
+                      class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                    />
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >City</label
+                      >
+                      <input
+                        type="text"
+                        required
+                        class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >Zip Code</label
+                      >
+                      <input
+                        type="text"
+                        required
+                        class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="font-bold text-gray-800 mb-4 border-b pb-2">
+                  Payment (Mock)
+                </h3>
+                <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                  <p class="text-sm text-gray-600 mb-2">Total to Pay:</p>
+                  <p
+                    id="checkout-total-display"
+                    class="text-3xl font-bold text-blue-600"
+                  >
+                    $0.00
+                  </p>
+                </div>
+
+                <div class="space-y-4">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Card Number</label
+                    >
+                    <div class="relative">
+                      <input
+                        type="text"
+                        placeholder="0000 0000 0000 0000"
+                        class="w-full border rounded-lg px-4 py-2 pl-10 focus:ring-2 focus:ring-blue-500 outline-none"
+                      />
+                      <i
+                        class="fa-regular fa-credit-card absolute left-3 top-3 text-gray-400"
+                      ></i>
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >Expiry</label
+                      >
+                      <input
+                        type="text"
+                        placeholder="MM/YY"
+                        class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >CVC</label
+                      >
+                      <input
+                        type="text"
+                        placeholder="123"
+                        class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full mt-8 bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition shadow-md"
+                >
+                  Pay & Order
+                </button>
+                <button
+                  type="button"
+                  onclick="router('cart')"
+                  class="w-full mt-2 text-gray-500 hover:text-gray-700 text-sm"
+                >
+                  Back to Cart
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. SUCCESS PAGE -->
+      <section id="success" class="view hide fade-in">
+        <div class="container mx-auto px-4 py-24 text-center">
+          <div
+            class="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl"
+          >
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <h2 class="text-4xl font-bold mb-4">Order Confirmed!</h2>
+          <p class="text-gray-600 text-xl mb-8">
+            Your fresh dairy products will be with you shortly.
+          </p>
+          <div class="bg-white max-w-md mx-auto p-6 rounded-lg shadow-sm mb-8">
+            <p class="text-sm text-gray-500">Order ID</p>
+            <p class="font-mono font-bold text-lg">#PP-89204-MILK</p>
+          </div>
+          <button
+            onclick="router('home')"
+            class="bg-blue-600 text-white px-8 py-3 rounded-full font-bold hover:bg-blue-700 transition"
+          >
+            Return Home
+          </button>
+        </div>
+      </section>
+
+      <!-- 6. PROVIDER LOGIN -->
+      <section id="provider-login" class="view hide fade-in">
+        <div class="min-h-[80vh] flex items-center justify-center bg-gray-50">
+          <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+            <div class="text-center mb-8">
+              <i class="fa-solid fa-tractor text-4xl text-blue-600 mb-2"></i>
+              <h2 class="text-2xl font-bold text-gray-800">Provider Portal</h2>
+              <p class="text-gray-500">Farmers & Suppliers Login</p>
+            </div>
+
+            <form onsubmit="handleProviderLogin(event)" class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Provider ID / Email</label
+                >
+                <input
+                  type="text"
+                  id="provider-email"
+                  class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                  value="admin"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  id="provider-pass"
+                  class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                  value="admin"
+                />
+              </div>
+              <div id="login-error" class="text-red-500 text-sm hidden">
+                Invalid credentials (Try: admin/admin)
+              </div>
+              <button
+                type="submit"
+                class="w-full bg-gray-800 text-white py-2 rounded-lg font-bold hover:bg-gray-900 transition"
+              >
+                Login
+              </button>
+            </form>
+            <div class="mt-6 text-center text-sm text-gray-400">
+              <p>
+                Not a provider?
+                <a href="#" onclick="router('home')" class="text-blue-500"
+                  >Return to shop</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. PROVIDER DASHBOARD -->
+      <section id="provider-dashboard" class="view hide fade-in">
+        <div class="flex flex-col md:flex-row min-h-screen">
+          <!-- Sidebar -->
+          <div class="w-full md:w-64 bg-gray-800 text-white p-6">
+            <div class="flex items-center space-x-2 mb-8">
+              <i class="fa-solid fa-leaf text-green-400"></i>
+              <span class="font-bold text-xl">Provider Panel</span>
+            </div>
+            <nav class="space-y-2">
+              <button
+                onclick="router('provider-dashboard')"
+                class="w-full text-left px-4 py-2 bg-gray-700 rounded text-white"
+              >
+                Inventory
+              </button>
+              <button
+                onclick="router('provider-add')"
+                class="w-full text-left px-4 py-2 text-gray-400 hover:bg-gray-700 hover:text-white rounded transition"
+              >
+                Add Product
+              </button>
+              <button
+                onclick="handleLogout()"
+                class="w-full text-left px-4 py-2 text-red-400 hover:bg-gray-700 rounded transition mt-8"
+              >
+                Logout
+              </button>
+            </nav>
+          </div>
+
+          <!-- Main Dash Content -->
+          <div class="flex-1 p-8 bg-gray-100">
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-2xl font-bold text-gray-800">Your Inventory</h2>
+              <button
+                onclick="router('provider-add')"
+                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 shadow-sm"
+              >
+                <i class="fa-solid fa-plus mr-1"></i> Add New
+              </button>
+            </div>
+
+            <div class="bg-white rounded-lg shadow overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="bg-gray-50 border-b text-sm text-gray-600 uppercase"
+                  >
+                    <th class="p-4">Product</th>
+                    <th class="p-4">Category</th>
+                    <th class="p-4">Price</th>
+                    <th class="p-4">Stock</th>
+                    <th class="p-4 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="inventory-table-body">
+                  <!-- JS Injected -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. PROVIDER ADD PRODUCT -->
+      <section id="provider-add" class="view hide fade-in">
+        <div class="flex flex-col md:flex-row min-h-screen">
+          <!-- Sidebar (Replicated for visual consistency) -->
+          <div
+            class="w-full md:w-64 bg-gray-800 text-white p-6 hidden md:block"
+          >
+            <div class="flex items-center space-x-2 mb-8">
+              <i class="fa-solid fa-leaf text-green-400"></i>
+              <span class="font-bold text-xl">Provider Panel</span>
+            </div>
+            <nav class="space-y-2">
+              <button
+                onclick="router('provider-dashboard')"
+                class="w-full text-left px-4 py-2 text-gray-400 hover:bg-gray-700 rounded transition"
+              >
+                Inventory
+              </button>
+              <button
+                onclick="router('provider-add')"
+                class="w-full text-left px-4 py-2 bg-gray-700 text-white rounded transition"
+              >
+                Add Product
+              </button>
+              <button
+                onclick="handleLogout()"
+                class="w-full text-left px-4 py-2 text-red-400 hover:bg-gray-700 rounded transition mt-8"
+              >
+                Logout
+              </button>
+            </nav>
+          </div>
+
+          <div class="flex-1 p-8 bg-gray-100">
+            <div class="max-w-2xl mx-auto">
+              <button
+                onclick="router('provider-dashboard')"
+                class="mb-4 text-gray-500 hover:text-gray-800"
+              >
+                <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+              </button>
+              <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                Upload Dairy Product
+              </h2>
+
+              <div class="bg-white p-8 rounded-lg shadow-sm">
+                <form onsubmit="handleAddProduct(event)" class="space-y-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Product Name</label
+                    >
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                      placeholder="e.g. Organic Cow Milk"
+                    />
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >Category</label
+                      >
+                      <select
+                        name="category"
+                        class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                      >
+                        <option value="Milk">Milk</option>
+                        <option value="Cheese">Cheese</option>
+                        <option value="Yogurt">Yogurt</option>
+                        <option value="Butter">Butter</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >Price ($)</label
+                      >
+                      <input
+                        type="number"
+                        step="0.01"
+                        name="price"
+                        required
+                        class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                        placeholder="0.00"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Image URL</label
+                    >
+                    <input
+                      type="url"
+                      name="image"
+                      required
+                      class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                      placeholder="https://..."
+                    />
+                    <p class="text-xs text-gray-400 mt-1">
+                      Paste a URL for the product image.
+                    </p>
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Description</label
+                    >
+                    <textarea
+                      name="desc"
+                      rows="3"
+                      class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition"
+                  >
+                    Publish Product
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT/FARMS (Extra page to hit count) -->
+      <section id="about" class="view hide fade-in">
+        <div class="container mx-auto px-4 py-16">
+          <h2 class="text-3xl font-bold mb-6 text-center">Our Partner Farms</h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1545464333-9cbd1f668d51?q=80&w=2070&auto=format&fit=crop"
+                class="w-full h-48 object-cover"
+                alt="Farm"
+              />
+              <div class="p-6">
+                <h3 class="font-bold text-xl">Green Valley Acres</h3>
+                <p class="text-gray-600 mt-2">
+                  Located in upstate New York, focusing on Holstein cattle and
+                  raw milk production.
+                </p>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1528543010705-e7e75169d718?q=80&w=2070&auto=format&fit=crop"
+                class="w-full h-48 object-cover"
+                alt="Farm"
+              />
+              <div class="p-6">
+                <h3 class="font-bold text-xl">Happy Goat Heritage</h3>
+                <p class="text-gray-600 mt-2">
+                  A small family-run farm specializing in goat cheese and
+                  organic yogurts.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-10 mt-auto">
+      <div class="container mx-auto px-4 grid md:grid-cols-4 gap-8">
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">PurePastures</h4>
+          <p class="text-sm">
+            Connecting conscientious consumers with local dairy farmers since
+            2023.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-white font-bold mb-4">Shop</h4>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href="#" onclick="router('shop')" class="hover:text-white"
+                >Milk</a
+              >
+            </li>
+            <li>
+              <a href="#" onclick="router('shop')" class="hover:text-white"
+                >Cheese</a
+              >
+            </li>
+            <li>
+              <a href="#" onclick="router('shop')" class="hover:text-white"
+                >Butter</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold mb-4">Support</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white">Provider Login</a></li>
+            <li><a href="#" class="hover:text-white">Shipping Rates</a></li>
+            <li><a href="#" class="hover:text-white">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold mb-4">Newsletter</h4>
+          <input
+            type="email"
+            placeholder="Enter email"
+            class="w-full bg-gray-700 text-white px-3 py-2 rounded mb-2 outline-none focus:ring-1 focus:ring-blue-500"
+          />
+          <button
+            class="bg-blue-600 text-white px-4 py-2 rounded w-full text-sm font-bold hover:bg-blue-700"
+          >
+            Subscribe
+          </button>
+        </div>
+      </div>
+      <div
+        class="container mx-auto px-4 mt-8 border-t border-gray-700 pt-6 text-center text-sm"
+      >
+        &copy; 2023 PurePastures Dairy. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div
+      id="toast"
+      class="fixed bottom-4 right-4 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-20 transition-transform duration-300 z-50 flex items-center gap-3"
+    >
+      <i class="fa-solid fa-circle-check text-green-400"></i>
+      <span id="toast-message">Item added to cart</span>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+      // --- DATA STATE ---
+      // Mock Database
+      const defaultProducts = [
+        {
+          id: 1,
+          name: "Organic Whole Milk",
+          category: "Milk",
+          price: 4.5,
+          image:
+            "https://images.unsplash.com/photo-1563636619-e9143da7973b?q=80&w=1965&auto=format&fit=crop",
+          provider: "Green Valley",
+        },
+        {
+          id: 2,
+          name: "Aged Cheddar Block",
+          category: "Cheese",
+          price: 8.99,
+          image:
+            "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?q=80&w=2070&auto=format&fit=crop",
+          provider: "Happy Goat",
+        },
+        {
+          id: 3,
+          name: "Farm Fresh Butter",
+          category: "Butter",
+          price: 5.25,
+          image:
+            "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?q=80&w=2070&auto=format&fit=crop",
+          provider: "Green Valley",
+        },
+        {
+          id: 4,
+          name: "Greek Yogurt Tub",
+          category: "Yogurt",
+          price: 3.75,
+          image:
+            "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?q=80&w=2070&auto=format&fit=crop",
+          provider: "Dairy King",
+        },
+        {
+          id: 5,
+          name: "Heavy Cream",
+          category: "Milk",
+          price: 6.0,
+          image:
+            "https://images.unsplash.com/photo-1628102491629-778571d893a3?q=80&w=2080&auto=format&fit=crop",
+          provider: "Green Valley",
+        },
+        {
+          id: 6,
+          name: "Blue Cheese Wedge",
+          category: "Cheese",
+          price: 10.5,
+          image:
+            "https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=2069&auto=format&fit=crop",
+          provider: "Happy Goat",
+        },
+      ];
+
+      let products =
+        JSON.parse(localStorage.getItem("products")) || defaultProducts;
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let isProviderLoggedIn = false;
+
+      // --- INIT ---
+      document.addEventListener("DOMContentLoaded", () => {
+        updateCartCount();
+        router("home"); // Initial Load
+      });
+
+      // --- ROUTER ---
+      function router(viewId) {
+        // Hide all views
+        document
+          .querySelectorAll(".view")
+          .forEach((el) => el.classList.add("hide"));
+
+        // Show target view
+        const target = document.getElementById(viewId);
+        if (target) {
+          target.classList.remove("hide");
+          window.scrollTo(0, 0);
+        }
+
+        // Logic trigger for specific views
+        if (viewId === "shop") renderShop("all");
+        if (viewId === "cart") renderCart();
+        if (viewId === "provider-dashboard") {
+          if (!isProviderLoggedIn) {
+            router("provider-login");
+          } else {
+            renderDashboard();
+          }
+        }
+        if (viewId === "provider-add" && !isProviderLoggedIn)
+          router("provider-login");
+      }
+
+      // --- SHOP LOGIC ---
+      function renderShop(category) {
+        const grid = document.getElementById("product-grid");
+        grid.innerHTML = "";
+
+        const filtered =
+          category === "all"
+            ? products
+            : products.filter((p) => p.category === category);
+
+        if (filtered.length === 0) {
+          grid.innerHTML =
+            '<div class="col-span-3 text-center py-10 text-gray-500">No products found in this category.</div>';
+          return;
+        }
+
+        filtered.forEach((p) => {
+          const card = document.createElement("div");
+          card.className =
+            "bg-white rounded-xl shadow-sm hover:shadow-lg transition overflow-hidden group";
+          card.innerHTML = `
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute top-2 right-2 bg-white px-2 py-1 text-xs font-bold rounded text-gray-600 shadow">${p.category}</div>
+                    </div>
+                    <div class="p-5">
+                        <div class="text-xs text-gray-500 mb-1">${p.provider}</div>
+                        <h3 class="font-bold text-lg mb-2 truncate">${p.name}</h3>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-xl font-bold text-blue-600">$${parseFloat(p.price).toFixed(2)}</span>
+                            <button onclick="addToCart(${p.id})" class="bg-blue-100 text-blue-600 p-2 rounded-full hover:bg-blue-600 hover:text-white transition">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+          grid.appendChild(card);
+        });
+      }
+
+      function filterProducts(cat) {
+        renderShop(cat);
+      }
+
+      // --- CART LOGIC ---
+      function addToCart(id) {
+        const product = products.find((p) => p.id === id);
+        const existing = cart.find((item) => item.id === id);
+
+        if (existing) {
+          existing.qty++;
+        } else {
+          cart.push({ ...product, qty: 1 });
+        }
+
+        saveCart();
+        showToast(`Added ${product.name} to cart`);
+      }
+
+      function removeFromCart(id) {
+        cart = cart.filter((item) => item.id !== id);
+        saveCart();
+        renderCart();
+      }
+
+      function changeQty(id, change) {
+        const item = cart.find((item) => item.id === id);
+        if (item) {
+          item.qty += change;
+          if (item.qty <= 0) removeFromCart(id);
+          else saveCart();
+        }
+        renderCart();
+      }
+
+      function saveCart() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount();
+      }
+
+      function updateCartCount() {
+        const count = cart.reduce((acc, item) => acc + item.qty, 0);
+        const badge = document.getElementById("cart-count");
+        badge.innerText = count;
+        badge.classList.toggle("scale-0", count === 0);
+      }
+
+      function renderCart() {
+        const container = document.getElementById("cart-items-container");
+        const subtotalEl = document.getElementById("cart-subtotal");
+        const totalEl = document.getElementById("cart-total");
+        const totalDisplay = document.getElementById("checkout-total-display");
+        const checkoutBtn = document.getElementById("checkout-btn");
+
+        container.innerHTML = "";
+        let total = 0;
+
+        if (cart.length === 0) {
+          container.innerHTML =
+            '<p class="text-gray-500 text-center py-8">Your cart is empty.</p>';
+          checkoutBtn.disabled = true;
+        } else {
+          checkoutBtn.disabled = false;
+          cart.forEach((item) => {
+            const itemTotal = item.price * item.qty;
+            total += itemTotal;
+
+            const row = document.createElement("div");
+            row.className =
+              "flex items-center justify-between border-b pb-4 last:border-0";
+            row.innerHTML = `
+                        <div class="flex items-center gap-4">
+                            <img src="${item.image}" class="w-16 h-16 object-cover rounded bg-gray-100">
+                            <div>
+                                <h4 class="font-bold text-sm md:text-base">${item.name}</h4>
+                                <p class="text-gray-500 text-sm">$${item.price.toFixed(2)} / unit</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center border rounded">
+                                <button onclick="changeQty(${item.id}, -1)" class="px-2 py-1 hover:bg-gray-100 text-gray-600">-</button>
+                                <span class="px-2 text-sm font-bold">${item.qty}</span>
+                                <button onclick="changeQty(${item.id}, 1)" class="px-2 py-1 hover:bg-gray-100 text-gray-600">+</button>
+                            </div>
+                            <button onclick="removeFromCart(${item.id})" class="text-red-400 hover:text-red-600">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+            container.appendChild(row);
+          });
+        }
+
+        subtotalEl.innerText = `$${total.toFixed(2)}`;
+        totalEl.innerText = `$${total.toFixed(2)}`;
+        if (totalDisplay) totalDisplay.innerText = `$${total.toFixed(2)}`;
+      }
+
+      function handleCheckout(e) {
+        e.preventDefault();
+        // Simulate processing
+        const btn = e.target.querySelector('button[type="submit"]');
+        btn.innerHTML =
+          '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+        btn.disabled = true;
+
+        setTimeout(() => {
+          cart = [];
+          saveCart();
+          router("success");
+          btn.innerHTML = "Pay & Order";
+          btn.disabled = false;
+          e.target.reset();
+        }, 1500);
+      }
+
+      // --- PROVIDER LOGIC ---
+      function handleProviderLogin(e) {
+        e.preventDefault();
+        const email = document.getElementById("provider-email").value;
+        const pass = document.getElementById("provider-pass").value;
+
+        // Mock Validation
+        if (email === "admin" && pass === "admin") {
+          isProviderLoggedIn = true;
+          document.getElementById("login-error").classList.add("hidden");
+          router("provider-dashboard");
+        } else {
+          document.getElementById("login-error").classList.remove("hidden");
+        }
+      }
+
+      function handleLogout() {
+        isProviderLoggedIn = false;
+        router("home");
+      }
+
+      function renderDashboard() {
+        const tbody = document.getElementById("inventory-table-body");
+        tbody.innerHTML = "";
+
+        // Reverse to show newest first
+        [...products].reverse().forEach((p) => {
+          const tr = document.createElement("tr");
+          tr.className = "border-b hover:bg-gray-50";
+          tr.innerHTML = `
+                    <td class="p-4 flex items-center gap-3">
+                        <img src="${p.image}" class="w-10 h-10 rounded object-cover">
+                        <span class="font-medium">${p.name}</span>
+                    </td>
+                    <td class="p-4 text-gray-600">${p.category}</td>
+                    <td class="p-4 font-bold text-gray-800">$${parseFloat(p.price).toFixed(2)}</td>
+                    <td class="p-4"><span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">In Stock</span></td>
+                    <td class="p-4 text-right">
+                        <button onclick="deleteProduct(${p.id})" class="text-red-500 hover:text-red-700"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      function handleAddProduct(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+
+        const newProduct = {
+          id: Date.now(), // simple unique id
+          name: formData.get("name"),
+          category: formData.get("category"),
+          price: parseFloat(formData.get("price")),
+          image: formData.get("image"),
+          provider: "Your Farm", // Mock provider name
+          desc: formData.get("desc"),
+        };
+
+        products.push(newProduct);
+        localStorage.setItem("products", JSON.stringify(products));
+
+        showToast("Product uploaded successfully!");
+        e.target.reset();
+        router("provider-dashboard");
+      }
+
+      function deleteProduct(id) {
+        if (confirm("Are you sure you want to remove this product?")) {
+          products = products.filter((p) => p.id !== id);
+          localStorage.setItem("products", JSON.stringify(products));
+          renderDashboard();
+          showToast("Product removed");
+        }
+      }
+
+      // --- UTILS ---
+      function showToast(msg) {
+        const toast = document.getElementById("toast");
+        const msgEl = document.getElementById("toast-message");
+        msgEl.innerText = msg;
+        toast.classList.remove("translate-y-20");
+        setTimeout(() => {
+          toast.classList.add("translate-y-20");
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
