@@ -304,7 +304,7 @@
                 <h3 class="font-bold text-lg mb-4">Order Summary</h3>
                 <div class="flex justify-between mb-2">
                   <span class="text-gray-600">Subtotal</span>
-                  <span id="cart-subtotal" class="font-medium">$0.00</span>
+                  <span id="cart-subtotal" class="font-medium">₹0.00</span>
                 </div>
                 <div class="flex justify-between mb-4">
                   <span class="text-gray-600">Delivery</span>
@@ -316,7 +316,7 @@
                     <span
                       id="cart-total"
                       class="font-bold text-2xl text-blue-600"
-                      >$0.00</span
+                      >₹0.00</span
                     >
                   </div>
                 </div>
@@ -427,7 +427,7 @@
                     id="checkout-total-display"
                     class="text-3xl font-bold text-blue-600"
                   >
-                    $0.00
+                    ₹0.00
                   </p>
                 </div>
 
@@ -716,7 +716,7 @@
                     <div>
                       <label
                         class="block text-sm font-medium text-gray-700 mb-1"
-                        >Price ($)</label
+                        >Price (₹)</label
                       >
                       <input
                         type="number"
@@ -781,7 +781,7 @@
               class="group relative h-96 rounded-xl overflow-hidden cursor-pointer"
             >
               <img
-                src="https://images.unsplash.com/photo-1545464333-9cbd1f668d51?q=80&w=2070&auto=format&fit=crop"
+                src="https://content.jdmagicbox.com/comp/def_content/cattle-farming/c9b38d1d21-cattle-farming-4-5wkpx.jpg"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 alt="Farm"
               />
@@ -794,8 +794,8 @@
                 <p
                   class="text-gray-200 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0"
                 >
-                  Located in upstate New York, focusing on Holstein cattle and
-                  raw milk production.
+                  Located in Ranpur, focusing on Jersey cattle and raw milk
+                  production.
                 </p>
                 <span
                   class="text-xs font-bold tracking-widest uppercase border-b border-white pb-1"
@@ -808,7 +808,7 @@
               class="group relative h-96 rounded-xl overflow-hidden cursor-pointer"
             >
               <img
-                src="https://images.unsplash.com/photo-1528543010705-e7e75169d718?q=80&w=2070&auto=format&fit=crop"
+                src="https://www.kapilacattlefeed.com/_next/image?url=%2Fimages%2Fhero-carousel%2Fcarousel-4-mobile.webp&w=3840&q=100"
                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 alt="Farm"
               />
@@ -817,12 +817,11 @@
               ></div>
 
               <div class="absolute bottom-0 p-8 text-white">
-                <h3 class="text-2xl font-bold mb-2">Happy Goat Heritage</h3>
+                <h3 class="text-2xl font-bold mb-2">Happy Cow Heritage</h3>
                 <p
                   class="text-gray-200 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0"
                 >
-                  A small family-run farm specializing in goat cheese and
-                  organic yogurts.
+                  A small family run farm specializing in ghee and milk.
                 </p>
                 <span
                   class="text-xs font-bold tracking-widest uppercase border-b border-white pb-1"
@@ -1118,7 +1117,7 @@
                             <img src="${item.image}" class="w-16 h-16 object-cover rounded bg-gray-100">
                             <div>
                                 <h4 class="font-bold text-sm md:text-base">${item.name}</h4>
-                                <p class="text-gray-500 text-sm">$${item.price.toFixed(2)} / unit</p>
+                                <p class="text-gray-500 text-sm">₹${item.price.toFixed(2)} / unit</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
@@ -1136,9 +1135,9 @@
           });
         }
 
-        subtotalEl.innerText = `$${total.toFixed(2)}`;
-        totalEl.innerText = `$${total.toFixed(2)}`;
-        if (totalDisplay) totalDisplay.innerText = `$${total.toFixed(2)}`;
+        subtotalEl.innerText = `₹${total.toFixed(2)}`;
+        totalEl.innerText = `₹${total.toFixed(2)}`;
+        if (totalDisplay) totalDisplay.innerText = `₹${total.toFixed(2)}`;
       }
 
       function handleCheckout(e) {
